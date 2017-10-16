@@ -23,16 +23,16 @@ class App extends Component {
   }
 
   refresh(){
-    this.setState({this.state});
+    this.setState(this.state);
   }
 
   render() {
     return (
       <div id="app">
-        // render Header here
+        <Header />
         <div className="main-container">
-          // render EmployeeList here
-          // render EmployeeEditor
+          <EmployeeList employees={this.state.employees} selectEmployee={this.selectEmployee} />
+          <EmployeeEditor  selected={this.state.employeeSelected} refreshList={this.refresh}/>
         </div>
       </div>
     )

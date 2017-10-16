@@ -8,6 +8,10 @@ class EmployeeEditor extends Component {
       originalEmployee: null,
       notModified: true
     }
+
+    this.handleChange = this.handleChange.bind(this);
+    this.save = this.save.bind(this);
+    this.cancel = this.cancel.bind(this);
     
   }
 
@@ -25,7 +29,11 @@ class EmployeeEditor extends Component {
   }
 
   save(){
-
+    this.props.selected.updateName(this.state.employee.name);
+    this.props.selected.updatePhone(this.state.employee.phone);
+    this.props.selected.updateTitle(this.state.employee.title);
+    this.setState({notModified: true});
+    this.props.refreshList();
   }
 
   cancel(){
